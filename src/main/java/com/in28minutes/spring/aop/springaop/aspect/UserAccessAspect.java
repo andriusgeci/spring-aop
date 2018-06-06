@@ -17,8 +17,10 @@ public class UserAccessAspect {
 
     //what kid of method calls I would intercept
     //execution(* PACKAGE.*.*(..))
-    @Before("execution(* com.in28minutes.spring.aop.springaop.business.*.*(..))")
+    //Weaving & Weaver
+    @Before("com.in28minutes.spring.aop.springaop.aspect.CommonJoinPointConfig.dataLayerExecution()")
     public void before(JoinPoint joinPoint){
+        //Advice
         logger.info("Check for user access");
         logger.info("Allowed execution for {}", joinPoint);
     }
